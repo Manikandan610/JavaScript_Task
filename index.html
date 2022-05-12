@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Form Validation</title>
+        <script src="jscode.js"></script>
+        <link rel="stylesheet" href ="style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1>Form Validation</h1>
+            </header>
+            <div class="form">
+                <form name="myForm" onsubmit="return validateForm()">
+                    <input type="text" placeholder="User Name" name="fname">
+                    <input type="text" placeholder="Email Id" name="email">
+                    <input type="text" placeholder="Mobile Number" id="fnum" name="fnum" onkeyup="check(); return false;" onkeypress="javascript:return isNumber(event)"  maxlength="10">
+                    <input type="password" placeholder="Enter Password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <div id="message">
+                        
+                        <p id="letter" class="invalid"></p>
+                        <p id="capital" class="invalid"></p>
+                        <p id="number" class="invalid"></p>
+                        <p id="length" class="invalid"></p>
+                      </div>
+                <script>
+                       //password checking
+                        var myInput = document.getElementById("psw");
+                        var letter = document.getElementById("letter");
+                        var capital = document.getElementById("capital");
+                        var number = document.getElementById("number");
+                        var length = document.getElementById("length");
+
+                        // When the user clicks on the password field, show the message box
+                        myInput.onfocus = function() {
+                        document.getElementById("message").style.display = "flex";
+                        }
+
+                        // When the user clicks outside of the password field, hide the message box
+                        myInput.onblur = function() {
+                        document.getElementById("message").style.display = "none";
+                        }
+
+                        // When the user starts to type something inside the password field
+                        myInput.onkeyup = function() {
+                        // Validate lowercase letters
+                        var lowerCaseLetters = /[a-z]/g;
+                        if(myInput.value.match(lowerCaseLetters)) {  
+                            letter.classList.remove("invalid");
+                            letter.classList.add("valid");
+                        } else {
+                            letter.classList.remove("valid");
+                            letter.classList.add("invalid");
+                        }
+                        
+                        // Validate capital letters
+                        var upperCaseLetters = /[A-Z]/g;
+                        if(myInput.value.match(upperCaseLetters)) {  
+                            capital.classList.remove("invalid");
+                            capital.classList.add("valid");
+                        } else {
+                            capital.classList.remove("valid");
+                            capital.classList.add("invalid");
+                        }
+
+                        // Validate numbers
+                        var numbers = /[0-9]/g;
+                        if(myInput.value.match(numbers)) {  
+                            number.classList.remove("invalid");
+                            number.classList.add("valid");
+                        } else {
+                            number.classList.remove("valid");
+                            number.classList.add("invalid");
+                        }
+                        
+                        // Validate length
+                        if(myInput.value.length >= 8) {
+                            length.classList.remove("invalid");
+                            length.classList.add("valid");
+                        } else {
+                            length.classList.remove("valid");
+                            length.classList.add("invalid");
+                        }
+                        }
+        </script>
+                    <input type="password" placeholder="Confirm Password" name="cpwd" id="cpsw">
+                    <button value="Submit" name="submit1" onclick="checkPass()">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>
