@@ -7,6 +7,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(236, 62, 207); /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, rgb(230, 23, 212), rgb(159, 248, 233));
 }
 .wrapper{
     background-color: rgb(253, 199, 99);
