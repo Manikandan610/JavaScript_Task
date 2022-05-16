@@ -12,18 +12,13 @@
             <div class="form">
                 <form name="myForm" id="myForm">
                     <input type="text" placeholder="User Name" name="fname" onkeypress="javascript:return isAlphabet(event)">
-                    <input type="text" placeholder="Email Id" name="email" id="email" onkeyup="validateemail(); return false;">
-         
+                    <input type="text" placeholder="Email Id" name="email" id="email" onkeyup="emailCheck(); return false;">
+                    <p id="error">*Invalid Email ID</p><p id="correct">*Valid  Email ID</p>
                     <input type="text" placeholder="Mobile Number" id="fnum" name="fnum" onkeyup="check(); return false;" onkeypress="javascript:return isNumber(event)"  maxlength="10">
                     <input type="password" placeholder="Enter Password" id="psw" name="psw" onkeyup="checkChar(); return false;">
-                    <p id="demo"></p>
-                    <div id="message">
-                        
-                        <p id="letter" class="invalid"></p>
-                        <p id="capital" class="invalid"></p>
-                        <p id="number" class="invalid"></p>
-                        <p id="length" class="invalid"></p>
-                      </div>
+                    <p id="weak">*atleast one number and one special character</p>
+                    <p id="strong">*Strong Password</p>
+                    
                 <script>
                        //password checking
                      /*   var myInput = document.getElementById("psw");
@@ -85,7 +80,8 @@
                         } 
                         */
         </script>
-                    <input type="password" placeholder="Confirm Password" name="cpwd" id="cpsw">
+                    <input type="password" placeholder="Confirm Password" name="cpwd" id="cpsw" onkeyup="checkPass(); return false;">
+                    
                     <button value="Submit" name="submit1" onclick="checkPass()">Submit</button>
                     <button value="Reset" name="reset1" onclick="clear()">Reset</button>
                 </form>

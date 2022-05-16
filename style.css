@@ -109,7 +109,7 @@ body{
   
   /* Add a red text color and an "x" when the requirements are wrong */
   .invalid {
-    color: red;
+    col
   }
   
   .invalid:before {
@@ -117,6 +117,16 @@ body{
     left: -35px;
     content: "✖";
   }
-  #demo{
-    margin-top: 10px;
+  #weak, #error{
+    margin-top: 15px;
+    display: none;
+    color: red;
+    justify-content: center;
   }
+  #strong, #correct{
+    margin-top: 15px;
+    display: none;
+    color: green;
+    justify-content: center;
+  }
+ 

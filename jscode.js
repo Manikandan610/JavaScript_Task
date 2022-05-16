@@ -67,72 +67,63 @@ else{
  function checkChar(){
          var myInput = document.getElementById("psw");
          var newPassword = myInput.value;
-         var minNumberofChars = 6;
-         var maxNumberofChars = 16;
+         var minNumberofChars = 4;
+         var maxNumberofChars = 10;
          var regularExpression  = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
                   
          if(newPassword.length < minNumberofChars || newPassword.length > maxNumberofChars){
+          document.getElementById("weak").style.display = "none";
+          document.getElementById("strong").style.display = "none";
+
              return true;
          }
          if(!regularExpression.test(newPassword)) {
-             alert("password should contain atleast one number and one special character");
-             return false;
+               document.getElementById("weak").style.display = "flex";
+               document.getElementById("strong").style.display = "none";
+         }
+         else{
+          document.getElementById("strong").style.display = "flex";
+          document.getElementById("weak").style.display = "none";
          }
     }
   
 
 //Check password and confirm password
-function checkPass(){
-    var pass1=document.getElementById('psw').value;
-    var pass2=document.getElementById('cpsw').value;
+function check(){
+//     var pass1=document.getElementById('psw').value;
+//     var pass2=document.getElementById('cpsw').value;
     
+//     if(pass1!="" && pass2!="")
+// {
+//     pass1.style.backgroundColor = badColor;
+// }
+// else{
+//      pass1.style.backgroundColor = goodColor;
+//     }
+    //password checking
     if(pass1!=pass2){
         alert("Incorrect Password");
     }
     else{
       alert("Successfully Submited");
-      document.getElementById("myForm").reset();
+     // document.getElementById("myForm").reset();
     }
+ }
+
+function emailCheck(){
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if(email.value.match(mailformat))
+  {
+   document.getElementById("correct").style.display = "flex";
+   document.getElementById("error").style.display = "none";
+  }
+  else
+  {
+    document.getElementById("error").style.display = "flex";
+    document.getElementById("correct").style.display = "none";
+  }
 }
 
-
-//Email id Validation
-  function validateemail()  
-  {  
-      var emailInput = document.getElementById('email');
-      var atPos = emailInput.value.indexOf("@");
-      var dotPos = emailInput.value.indexOf(".");
-      var emailLength = emailInput.value.length;
-      if (atPos < 1 || dotPos < atPos + 2 || dotPos + 2 > emailLength) {
-        alert("Invalid Email format");
-        return false;
-      }
-      //return true;
-      // var x=document.myForm.email.value;  
-      // var atposition=x.indexOf("@");  
-      // var dotposition=x.lastIndexOf(".");  
-      // if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
-      //   alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
-      //   return false;  
-      //   }  
-  }  
-    // function validateemail()
-    // {
-    //     var emailid = document.getElementById('email');
-    //     var mail_format = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
-    //     if(emailid.value.match(mail_format))
-    //     {
-    //         alert("Valid email Id");
-    //         document.myForm.fnum.focus();
-    //         return true;
-    //     }
-    //     Else
-    //     {
-    //         alert("Invalid email Id");
-    //         document.myForm.email.focus();
-    //         return false;
-    //     }
-    // }
 
 
 function clear(){
