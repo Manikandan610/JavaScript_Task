@@ -1,33 +1,3 @@
-//Fill Empty Box
-// function validateForm() {
-//     let x = document.forms["myForm"]["fname"].value;
-//     if (x == "") {
-//       alert("Name must be filled out");
-//       return false;
-//     }
-//     let y = document.forms["myForm"]["email"].value;
-//     if (y == "") {
-//       alert("Email must be filled out");
-//       return false;
-//     }
-//     let z = document.forms["myForm"]["fnum"].value;
-//     if (z == "") {
-//       alert("Number must be filled out");
-//       return false;
-//     }
-//     let w = document.forms["myForm"]["psw"].value;
-//     if (w == "") {
-//       alert("password must be filled out");
-//       return false;
-//     }
-//     let v = document.forms["myForm"]["cpwd"].value;
-//     if (v == "") {
-//       alert("confirm Password must be filled out");
-//       return false;
-//     }
-//   } 
-
-
 //type only alphbets
 function isAlphabet(evt) {
   var iKeyCode = (evt.which) ? evt.which : evt.keyCode
@@ -88,29 +58,75 @@ function check()
           document.getElementById("strong").style.display = "flex";
           document.getElementById("weak").style.display = "none";
          }
-        
+         
       }
 
     
 
 //Check password and confirm password
 function checkPass(){
+    var name1=document.getElementById('fname').value;
+    var email1=document.getElementById('email').value;
+    var num1=document.getElementById('fnum').value;
     var pass1=document.getElementById('psw').value;
     var pass2=document.getElementById('cpsw').value;
-    
+    var regularExpression  = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{3,16}$/;
+    // if(pass1===regularExpression){
+    //   alert("Must One Special");
+    // }
+
     //password checking
-    if(pass1=="" || pass2==""){
-      alert("Fill Password");      
+    if(name1==""){
+      alert("Fill UserName");
+      document.getElementById("fname").focus();
     }
-    
+    else if(email1==""){
+      alert("Fill EmailID");
+      document.getElementById("email").focus();
+    }
+    else if(num1==""){
+      alert("Fill Mobile Number");
+      document.getElementById("fnum").focus();
+    }
+    else if(pass1==""){
+      alert("Fill Password");
+      document.getElementById("psw").focus();     
+    }
+    else if(pass1.length<8){
+      //document.getElementById("lcount").style.display = "flex";
+      alert("Maximum 8 characters Required");
+      document.getElementById("psw").focus();     
+    }
+    else if(!regularExpression.test(pass1)){
+      alert("Given 1 Special Char, Number and Upper Case Letter")
+      document.getElementById("psw").focus();
+    }
+    else if(pass2==""){
+      alert("Fill Confirm Password");  
+      document.getElementById("cpsw").focus();
+    }
     else if(pass1!==pass2){
       alert("Wrong Password");
+      document.getElementById("cpsw").focus();
     }
     else{
       alert("Successfully Submited");
-     // document.getElementById("myForm").reset();
+      document.getElementById("myForm").reset();
+      document.getElementById("strong").style.display = "none";
+      document.getElementById("weak").style.display = "none";
+      document.getElementById("correct").style.display = "none";
+      document.getElementById("error").style.display = "none";
+      document.getElementById("fnum").style.background = "white";
     }
  }
+
+function hide(){
+      document.getElementById("strong").style.display = "none";
+      document.getElementById("weak").style.display = "none";
+      document.getElementById("correct").style.display = "none";
+      document.getElementById("error").style.display = "none";
+      
+}
 
 function emailCheck(){
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -126,7 +142,6 @@ function emailCheck(){
     document.getElementById("correct").style.display = "none";
   }
 }
-
 
 
 function clear(){
