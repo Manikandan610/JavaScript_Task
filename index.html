@@ -17,13 +17,17 @@
                             placeholder="User Name" 
                             name="fname" 
                             id="fname"
-                            onkeypress="javascript:return isAlphabet(event)">
+                            onkeypress="javascript:return isAlphabet(event)"
+                            onkeyup="charCheck(); return false" maxlength="8">  
+                            <span id="weak">*Maximum 8 characters Required</span>
+                            <span id="strong">*You Reached 8 characters</span>
 
                     <input type="text"
                              placeholder="Email Id" 
                              name="email" 
                              id="email" 
-                             onkeyup="emailCheck(); return false;">
+                             onkeyup="emailCheck(); return false;"
+                             onclick="hide()">
 
                     <span id="error">*Invalid Email ID</span>
                     <span id="correct">*Valid Email ID</span>
@@ -70,7 +74,7 @@
                     <input type="password" placeholder="Confirm Password" name="cpwd" id="cpsw" onclick="hide()">
                     
                     <button value="Submit" name="submit1" onclick="checkPass()">Submit</button>
-                    <button value="Reset" name="reset1" onclick="clear()">Reset</button>
+                    <!--button value="Reset" name="reset1" onclick="clear()">Reset</button-->
                 </form>
             </div>
         </div>

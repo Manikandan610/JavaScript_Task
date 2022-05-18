@@ -9,28 +9,41 @@ function isAlphabet(evt) {
 
   //type only numbers
   function isNumber(evt) {
+    
         document.getElementById("correct").style.display = "none";
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
     if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
         return false;
-
+        
     return true;
 }    
+  function charCheck(){
+    var name=document.getElementById('fname').value;
+       if(name.length<8){
+        document.getElementById("weak").style.display = "flex";
+        document.getElementById("strong").style.display = "none";   
+        }
+        else if(name.length==8){
+          document.getElementById("weak").style.display = "none";
+          document.getElementById("strong").style.display = "flex";
+              
+          }
+  }
 
 
 //max 10 digits
 function check()
 {
     var pass1 = document.getElementById('fnum');
-    var goodColor = "#0C6";
+    var goodColor = "green";
     var badColor = "red";
 
     if(pass1.value.length<10)
     {
-        pass1.style.backgroundColor = badColor;
+        pass1.style.color = badColor; 
     }
     else{
-        pass1.style.backgroundColor = goodColor;
+        pass1.style.color = goodColor;
         }
 }
 
@@ -102,7 +115,7 @@ function checkPass(){
       document.getElementById("psw").focus();
     }
     else if(pass2==""){
-      alert("Fill Confirm Password");  
+      alert("Fill Confirm Password");
       document.getElementById("cpsw").focus();
     }
     else if(pass1!==pass2){
@@ -125,7 +138,6 @@ function hide(){
       document.getElementById("weak").style.display = "none";
       document.getElementById("correct").style.display = "none";
       document.getElementById("error").style.display = "none";
-      
 }
 
 function emailCheck(){
