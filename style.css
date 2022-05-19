@@ -81,13 +81,13 @@ body{
     transform: translateY(4px);
   }
 
-  #weak, #error{
+  #weak, #error, #weak1{
     margin-top: 15px;
     display: none;
     color: red;
     justify-content: center;
   }
-  #strong, #correct{
+  #strong, #correct, #strong1{
     margin-top: 15px;
     display: none;
     color: green;
@@ -135,10 +135,10 @@ body{
 .form button:active {
   transform: translateY(5px);
 }
-#weak, #error{
+#weak, #error, #weak1{
   font-size: 22px;
 }
-#strong, #correct{
+#strong, #correct, #strong1{
   font-size: 22px;
 }
 form i {
@@ -180,10 +180,10 @@ form i {
 .form button:active {
   transform: translateY(5px);
 }
-#weak, #error{
+#weak, #error, #weak1{
   font-size: 22px;
 }
-#strong, #correct{
+#strong, #correct, #strong1{
   font-size: 22px;
 }
 form i {
@@ -210,10 +210,10 @@ form i {
   font-size: 20px;
   margin-top: 20px;
 }
-#weak, #error{
+#weak, #error, #weak1{
   font-size: 18px;
 }
-#strong, #correct{
+#strong, #correct, #strong1{
   font-size: 18px;
 }
 form i {
@@ -258,10 +258,10 @@ form i {
 .form button:active {
   transform: translateY(5px);
 } */
-#weak, #error{
+#weak, #error, #weak1{
   font-size: 17px;
 }
-#strong, #correct{
+#strong, #correct, #strong1{
   font-size: 17px;
 }
 form i {
@@ -304,10 +304,10 @@ form i {
 .form button:active {
   transform: translateY(5px);
 }
-#weak, #error{
+#weak, #error, #weak1{
   font-size: 15px;
 }
-#strong, #correct{
+#strong, #correct, #strong1{
   font-size: 15px;
 }
 form i {

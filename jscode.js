@@ -58,18 +58,18 @@ function check()
         // var regularExpression = /^((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*_+=]).{4,})+$/;  
          
          if(newPassword.length < minNumberofChars && newPassword.length > maxNumberofChars){
-          document.getElementById("weak").style.display = "none";
-          document.getElementById("strong").style.display = "none";
+          document.getElementById("weak1").style.display = "none";
+          document.getElementById("strong1").style.display = "none";
 
              return true;
          }
          if(!regularExpression.test(newPassword)) {
-               document.getElementById("weak").style.display = "flex";
-               document.getElementById("strong").style.display = "none";
+               document.getElementById("weak1").style.display = "flex";
+               document.getElementById("strong1").style.display = "none";
          }
          else{
-          document.getElementById("strong").style.display = "flex";
-          document.getElementById("weak").style.display = "none";
+          document.getElementById("strong1").style.display = "flex";
+          document.getElementById("weak1").style.display = "none";
          }
          
       }
@@ -84,52 +84,92 @@ function checkPass(){
     var pass1=document.getElementById('psw').value;
     var pass2=document.getElementById('cpsw').value;
     var regularExpression  = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{3,16}$/;
-    // if(pass1===regularExpression){
-    //   alert("Must One Special");
-    // }
 
     //password checking
-    if(name1==""){
-      alert("Fill UserName");
-      document.getElementById("fname").focus();
-    }
-    else if(email1==""){
-      alert("Fill EmailID");
-      document.getElementById("email").focus();
-    }
-    else if(num1==""){
-      alert("Fill Mobile Number");
-      document.getElementById("fnum").focus();
-    }
-    else if(pass1==""){
-      alert("Fill Password");
-      document.getElementById("psw").focus();     
-    }
-    else if(pass1.length<8){
-      //document.getElementById("lcount").style.display = "flex";
-      alert("Maximum 8 characters Required");
-      document.getElementById("psw").focus();     
-    }
-    else if(!regularExpression.test(pass1)){
-      alert("Given 1 Special Char, Number and Upper Case Letter")
-      document.getElementById("psw").focus();
-    }
-    else if(pass2==""){
-      alert("Fill Confirm Password");
-      document.getElementById("cpsw").focus();
-    }
-    else if(pass1!==pass2){
-      alert("Wrong Password");
-      document.getElementById("cpsw").focus();
-    }
-    else{
-      alert("Successfully Submited");
-      document.getElementById("myForm").reset();
-      document.getElementById("strong").style.display = "none";
-      document.getElementById("weak").style.display = "none";
-      document.getElementById("correct").style.display = "none";
-      document.getElementById("error").style.display = "none";
-      document.getElementById("fnum").style.background = "white";
+    // if(name1==""){
+    //   alert("Fill UserName");
+    //   document.getElementById("fname").focus();
+    // }
+    // else if(email1==""){
+    //   alert("Fill EmailID");
+    //   document.getElementById("email").focus();
+    // }
+    // else if(num1==""){
+    //   alert("Fill Mobile Number");
+    //   document.getElementById("fnum").focus();
+    // }
+    // else if(pass1==""){
+    //   alert("Fill Password");
+    //   document.getElementById("psw").focus();     
+    // }
+    // else if(pass1.length<8){
+    //   alert("Maximum 8 characters Required");
+    //   document.getElementById("psw").focus();     
+    // }
+    // else if(!regularExpression.test(pass1)){
+    //   alert("Given 1 Special Char, Number and Upper Case Letter")
+    //   document.getElementById("psw").focus();
+    // }
+    // else if(pass2==""){
+    //   alert("Fill Confirm Password");
+    //   document.getElementById("cpsw").focus();
+    // }
+    // else if(pass1!==pass2){
+    //   alert("Wrong Password");
+    //   document.getElementById("cpsw").focus();
+    // }
+    // else{
+    //   alert("Successfully Submited");
+    //   document.getElementById("myForm").reset();
+    //   document.getElementById("strong").style.display = "none";
+    //   document.getElementById("weak").style.display = "none";
+    //   document.getElementById("correct").style.display = "none";
+    //   document.getElementById("error").style.display = "none";
+    //   document.getElementById("fnum").style.background = "white";
+    // }
+    switch(true){
+      case (name1==""):
+        alert("Fill UserName");
+        document.getElementById("fname").focus();
+        break;
+      case (email1==""):
+        alert("Fill EmailID");
+        document.getElementById("email").focus();
+        break;
+      case (num1==""):
+        alert("Fill Mobile Number");
+        document.getElementById("fnum").focus();
+        break;
+      case (pass1==""):
+        alert("Fill Password");
+        document.getElementById("psw").focus();     
+        break;
+      case (pass1.length<8):
+        alert("Maximum 8 characters Required");
+        document.getElementById("psw").focus();     
+        break;
+      case (!regularExpression.test(pass1)):
+        alert("Given 1 Special Char, Number and Upper Case Letter")
+        document.getElementById("psw").focus();
+        break;
+      case (pass2==""):
+        alert("Fill Confirm Password");
+        document.getElementById("cpsw").focus();
+        break;
+      case (pass1!==pass2):
+        alert("Wrong Password");
+        document.getElementById("cpsw").focus();
+        break;
+      default:
+        alert("Successfully Submited");
+        document.getElementById("myForm").reset();
+        document.getElementById("strong").style.display = "none";
+        document.getElementById("weak").style.display = "none";
+        document.getElementById("strong1").style.display = "none";
+        document.getElementById("weak1").style.display = "none";
+        document.getElementById("correct").style.display = "none";
+        document.getElementById("error").style.display = "none";
+        document.getElementById("fnum").style.background = "white";
     }
  }
 
@@ -138,6 +178,8 @@ function hide(){
       document.getElementById("weak").style.display = "none";
       document.getElementById("correct").style.display = "none";
       document.getElementById("error").style.display = "none";
+      document.getElementById("strong1").style.display = "none";
+      document.getElementById("weak1").style.display = "none";
 }
 
 function emailCheck(){
